@@ -1,14 +1,14 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
-import { createRequire } from "node:module";
 import path from "node:path";
 import type { NextFunction, Request, Response } from "express";
+// Import direct sans createRequire — compatible Jest et ESM
+import multerLib from "multer";
 import { findById } from "../tickets/ticketsRepository.js";
 import attachmentsRepository from "./attachmentsRepository.js";
 import type { MulterFile, MulterOptions, MulterStatic } from "./multerTypes.js";
 
-const require = createRequire(import.meta.url);
-const multer = require("multer") as MulterStatic;
+const multer = multerLib as MulterStatic;
 
 const ALLOWED_EXTENSIONS = [
 	".gif",

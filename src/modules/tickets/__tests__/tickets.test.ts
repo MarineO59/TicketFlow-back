@@ -6,6 +6,7 @@ import * as ticketsRepository from "../ticketsRepository.js";
 
 jest.mock("../ticketsRepository.js");
 jest.mock("../../ticketHistory/ticketHistoryRepository.js");
+jest.mock("../../../socket.js");
 
 const mockRepo = ticketsRepository as jest.Mocked<typeof ticketsRepository>;
 
